@@ -1,8 +1,22 @@
-# Customer-Credit-Risk-Analysis-and-Prediction-System
-•	Analyzed and preprocessed a credit card dataset with 30,000+ customer records and 25+ features using Python, Pandas, and NumPy.
-•	Performed data cleaning, normalization, and feature engineering to reduce inconsistencies and improve model reliability by 20%+.
-•	Conducted exploratory data analysis (EDA) to identify key patterns in payment behavior, credit limits, and default risk, visualizing 10+ variables using Matplotlib and Seaborn.
-•	Built and trained multiple machine learning models (Logistic Regression, Decision Tree, Random Forest, etc.) to predict customer default risk, achieving 80%+ classification accuracy.
-•	Optimized model performance through hyperparameter tuning and cross-validation, improving prediction stability by 15–18%.
+# Customer Credit Risk - Full Stack
 
-DATASET :https://docs.google.com/spreadsheets/d/1Sd0ZLVoM1RMd-Xk3Ti8Y2piDr9IJAqkg/edit?usp=sharing&ouid=116301871769705362523&rtpof=true&sd=true
+This branch adds a complete full-stack application around the existing CREDIT_CARD_CLIENTS.ipynb analysis. It includes:
+
+- Backend: FastAPI service that loads a trained sklearn/XGBoost pipeline and exposes a /predict endpoint.
+- Training script: train.py to preprocess data, train a pipeline, and save model artifacts to backend/model.joblib.
+- Frontend: React + Vite single-page app with a form to enter customer features and call the prediction API.
+- Docker + docker-compose setup to run frontend and backend together.
+
+Quickstart
+1. Copy the dataset into `data/default_of_credit_card_clients.xls` (or point to your path). The original notebook used the Excel file with header=1.
+2. Create a Python venv and install train requirements: `pip install -r backend/requirements.txt`
+3. Train the model: `python train.py --data data/default_of_credit_card_clients.xls --out backend/model.joblib`
+4. Start backend: `uvicorn backend.app.main:app --reload --host 0.0.0.0 --port 8000`
+5. Start frontend:
+   - `cd frontend`
+   - `npm install`
+   - `npm run dev`
+
+Or use Docker Compose: `docker-compose up --build`
+
+See backend/README.md and frontend/README.md for more details.

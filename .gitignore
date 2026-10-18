@@ -1,0 +1,17 @@
+.venv
+__pycache__/
+node_modules/
+dist/
+.env
+backend/model.joblib
+/data/
+.DS_Store
+.vscode/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+coverage/
+coverage.*
+htmlcov/
+.ipynb_checkpoints/
